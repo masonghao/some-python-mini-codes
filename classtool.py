@@ -1,5 +1,11 @@
 class AttrDisplay:
-    """docstring for AttrDisplay"""
+    """
+    Provides an inheritable print voerload method that displays
+    instances with their class names and a name=value pair for
+    each attribute stored on the instance itself (but not attrs
+    inherited from its calsses). Can be mixed into any class,
+    and will work in any instance.
+    """
     def getAllAttrs(self):
         lists = []
         for key in sorted(self.__dict__):
@@ -19,4 +25,4 @@ if __name__ == '__main__':
         pass
 
     X,Y = TopTest(), SubTest()
-    print(X, Y, sep='\n')
+    print(X, Y, sep='\n') # Show all instance attrs, show lowest class name
