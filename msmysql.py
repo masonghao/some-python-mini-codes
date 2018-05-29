@@ -4,7 +4,8 @@ class Msmysql:
     '''
     class of deal mysql data. base pyhton3.x MySQLdb
     '''
-    def __init__(self, dbhost="localhost", dbuser="root", dbpwd="", dbname="msbooks", char='utf8'):
+    
+    def __init__(self, dbhost="localhost", dbuser="root", dbpwd="", dbname="testdb", char='utf8'):
         self.db = MySQLdb.connect(dbhost, dbuser, dbpwd, dbname, charset=char)
         self.cursor = None
 
@@ -58,5 +59,6 @@ class Msmysql:
 
 if __name__ == '__main__':
     sql = 'SELECT m_time,m_author,m_title FROM `ms_news`'
-    for line in selectAll(sql, 1):
+    m = Msmysql()
+    for line in m.selectAll(sql):
         print(line['m_time'], line['m_author'], line['m_title'])
