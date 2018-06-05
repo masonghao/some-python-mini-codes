@@ -53,6 +53,7 @@ class Msmysql:
            self.db.rollback() # 发生错误时回滚
 
     def __del__(self):
+        self.cursor.close() # 关闭cursor
         self.db.close() # 关闭数据库连接
 
 
