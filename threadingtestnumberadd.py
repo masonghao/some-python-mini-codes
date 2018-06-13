@@ -30,12 +30,12 @@ def chaifenqi(funs, starts, ends, counts):
     for x in range(counts):
         base2 = base+nums
         
-        threads = myThread(counts, funs, base, base2)
+        threads = MyThread(counts, funs, base, base2)
         threadarr.append(threads)
         base = base2
     else:
         if base < ends:
-            threads = myThread(counts+1, funs, base, ends)
+            threads = MyThread(counts+1, funs, base, ends)
             threadarr.append(threads)
 
     # 线程执行等待开启
