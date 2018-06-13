@@ -48,7 +48,15 @@ def chaifenqi(funs, starts, ends, counts):
 
     print('Exit main threadarr')
 
-class myThread (threading.Thread):   #继承父类threading.Thread
+class MyThread (threading.Thread):
+    """
+    继承父类threading.Thread
+    调用示例：
+      创建线程1： thread1 = MyThread(1, lambda x,y:print('%d'%x**y), 3, 5)
+      创建线程2： thread2 = MyThread(1, lambda x,y:print('%d'%x**y), 2, 4)
+      执行线程： thread1.start(); thread2.start();
+      等待结束： thread1.join(); thread2.join();
+    """
     def __init__(self, threadID, func, *param):
         threading.Thread.__init__(self)
         self.threadID = threadID
